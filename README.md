@@ -3,7 +3,7 @@ Application that uses the GitHub API to list user repositories.
 
 ### Description
 This project is an API designed to allow consumers to list all GitHub repositories for a given username that are not forks. The API returns repository names, owner login, and for each branch, its name, and the last commit SHA. In the case of a non-existing GitHub user, the API provides a 404 response with a detailed message.
-
+This project is built using the Hexagonal Architecture, also known as Ports and Adapters. This architectural style emphasizes the separation of concerns by dividing the application into distinct layers with clear responsibilities.
 # Getting Started
 ### Dependencies
 This project is built with the following key dependencies:
