@@ -8,6 +8,9 @@ github:
     url: https://api.github.com/
     token: "YOUR_PERSONAL_GITHUB_TOKEN"
 ```
+### How to generate token
+https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+
 ### Description
 This project is an API designed to allow consumers to list all GitHub repositories for a given username that are not forks. The API returns repository names, owner login, and for each branch, its name, and the last commit SHA. In the case of a non-existing GitHub user, the API provides a 404 response with a detailed message.
 This project is built using the Hexagonal Architecture, also known as Ports and Adapters. This architectural style emphasizes the separation of concerns by dividing the application into distinct layers with clear responsibilities.
