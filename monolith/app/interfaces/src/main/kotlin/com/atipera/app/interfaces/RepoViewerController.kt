@@ -13,13 +13,12 @@ import com.atipera.app.interfaces.web.toResponse
 @RestController
 @RequestMapping("/repo-viewer")
 class RepoViewerController(private val repoViewerService: RepoViewerService) {
+
     @GetMapping("/getRepositoriesList")
     fun getRepositoriesByUsername(@RequestParam username: String): Response<List<RepositoryProjection>> {
         return when (val result = repoViewerService.getRepositoriesListWithBranchesByUsername(username)) {
             is Either.Right -> result.value.toResponse()
             is Either.Left -> throw result.value.toException()
-
         }
     }
-
 }

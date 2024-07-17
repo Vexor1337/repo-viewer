@@ -23,8 +23,8 @@ fun GitHubClientException.toException(status: HttpStatus = HttpStatus.BAD_REQUES
     basePackages = ["com.atipera.app.interfaces"]
 )
 @Order(100)
-class LolRanksControllerExceptionHandler {
-    private val logger = LoggerFactory.getLogger(LolRanksControllerExceptionHandler::class.java)
+class RepoViewerExceptionHandler {
+    private val logger = LoggerFactory.getLogger(RepoViewerExceptionHandler::class.java)
 
     @ExceptionHandler(RepoViewerEitherException::class)
     fun handleRuntimeException(exception: RepoViewerEitherException): ResponseEntity<ErrorResponseWrapper> =
@@ -37,6 +37,7 @@ class LolRanksControllerExceptionHandler {
     @ExceptionHandler(GitHubApiUnexpectedException::class)
     fun handleGitHubApiUnexpectedException(exception: GitHubApiUnexpectedException): ResponseEntity<ErrorResponseWrapper> =
         exception.log().message.toErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY)
+
     private fun <T : RuntimeException> T.log(): T =
         apply { logger.warn(this.message + " " + this.stackTraceToString()) }
 }

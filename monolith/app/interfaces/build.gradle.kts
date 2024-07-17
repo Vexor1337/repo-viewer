@@ -36,6 +36,8 @@ dependencies {
 
     implementation(group = "io.arrow-kt", name = "arrow-core", version = "1.2.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.mockk:mockk:1.9.3")
+
 }
 
 tasks.withType<KotlinCompile> {
