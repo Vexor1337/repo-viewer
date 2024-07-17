@@ -47,6 +47,9 @@ dependencies {
 
 
     implementation (group= "org.springdoc", name= "springdoc-openapi-starter-webmvc-ui", version= "2.0.2")
+
+    testImplementation("io.mockk:mockk:1.9.3")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {

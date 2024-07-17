@@ -17,4 +17,4 @@ spring:
 github:
   api:
     url: https://api.github.com/
-    token: "YOUR_PERSONAL_GITHUB_TOKEN""
+    token: "YOUR_PERSONAL_GITHUB_TOKEN"

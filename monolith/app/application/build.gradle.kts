@@ -39,6 +39,7 @@ dependencies {
     kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
 
     implementation(group = "io.arrow-kt", name = "arrow-core", version = "1.2.1")
+    testImplementation("io.mockk:mockk:1.9.3")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
