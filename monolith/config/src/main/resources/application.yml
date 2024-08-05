@@ -1,4 +1,6 @@
 spring:
+  main:
+    web-application-type: none
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher

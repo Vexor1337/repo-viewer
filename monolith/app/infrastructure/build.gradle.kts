@@ -23,6 +23,7 @@ java {
 
 repositories {
     mavenCentral()
+
 }
 
 dependencies {
@@ -33,10 +34,15 @@ dependencies {
     implementation(project(":monolith:app:commons"))
 
     implementation(group = "io.arrow-kt", name = "arrow-core", version = "1.2.1")
-    implementation(group = "io.github.openfeign", name = "feign-core", version = "12.4")
-    implementation(group = "io.github.openfeign", name = "feign-gson", version = "12.4")
-    implementation(group = "io.github.openfeign", name = "feign-okhttp", version = "12.4")
-    implementation(group = "io.github.openfeign", name = "feign-slf4j", version = "12.4")
+
+    implementation("com.playtika.reactivefeign:feign-reactor:4.0.3")
+    implementation("com.playtika.reactivefeign:feign-reactor-core:4.0.3")
+    implementation("com.playtika.reactivefeign:feign-reactor-spring-configuration:4.0.3")
+    implementation("com.playtika.reactivefeign:feign-reactor-webclient:4.0.3")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("io.projectreactor:reactor-core")
+    implementation("io.projectreactor.netty:reactor-netty")
+
 
 
     testImplementation("io.mockk:mockk:1.9.3")

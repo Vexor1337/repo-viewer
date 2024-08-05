@@ -31,6 +31,12 @@ dependencies {
     implementation(group = "io.arrow-kt", name = "arrow-core", version = "1.2.1")
     implementation(project(":monolith:app:commons"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("io.projectreactor:reactor-core")
+    implementation("io.projectreactor.netty:reactor-netty")
+
+
 }
 
 tasks.withType<KotlinCompile> {
