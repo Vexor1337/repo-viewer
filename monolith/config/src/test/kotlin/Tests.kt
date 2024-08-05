@@ -20,18 +20,18 @@ class GitHubClientIntegrationTest {
 
         resetAllRequests()
 
-        stubFor(get(urlPathEqualTo("/users/testuser/repos"))
-            .willReturn(aResponse()
-                .withHeader("Content-Type", "application/json")
-                .withBody("""[
-                    {"name": "repo1", "owner": {"login": "testuser"}}
-                ]""")))
-
         stubFor(get(urlPathEqualTo("/repo-viewer/getRepositoriesList?username=testuser"))
             .willReturn(aResponse()
                 .withHeader("Content-Type", "application/json")
                 .withBody("""[
-                    {"name": "main", "commit": {"sha": "abc123"}}
+                    {
+      "repositoryName": "test",
+      "ownerLogin": "test",
+      "branches": [
+        {
+          "branchName": "test",
+          "lastCommitSha": "test"
+        }
                 ]""")))
     }
 
@@ -43,9 +43,10 @@ class GitHubClientIntegrationTest {
             .expectStatus().isOk
             .expectBody()
             .jsonPath("$.length()").isEqualTo(1)
-            .jsonPath("$[0].name").isEqualTo("repo1")
+            .jsonPath("$[0].repositoryName").isEqualTo("test")
+            .jsonPath("$[0].ownerLogin").isEqualTo("test")
             .jsonPath("$[0].branches.length()").isEqualTo(1)
-            .jsonPath("$[0].branches[0].branchName").isEqualTo("main")
-            .jsonPath("$[0].branches[0].sha").isEqualTo("abc123")
+            .jsonPath("$[0].branches[0].branchName").isEqualTo("test")
+            .jsonPath("$[0].branches[0].lastCommitSha").isEqualTo("test")
     }
 }
